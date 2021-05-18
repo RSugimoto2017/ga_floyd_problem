@@ -174,5 +174,5 @@ void Population::printResult()
       printf("√%d", i + 1);
     }
   }
-  printf("\n差：%f\n, ind[0]->fitness");
+  printf("\n差：%f\n", ind[0]->fitness);
 }
