@@ -7,11 +7,12 @@
 #include <math.h>
 
 //定数の定義
-#define GEN_MAX 1000     //世代交代数
-#define POP_SIZE 1000    //個体群のサイズ
-#define ELITE 1          //エリート保存戦略で残す個体数
-#define MUTATE_PROB 0.01 //突然変異確率
-#define N 64             //集合の要素となる最大数の平方値
+#define GEN_MAX 1000       //世代交代数
+#define POP_SIZE 1000      //個体群のサイズ
+#define ELITE 1            //エリート保存戦略で残す個体数
+#define MUTATE_PROB 0.01   //突然変異確率
+#define N 64               //集合の要素となる最大数の平方値
+#define TOURNAMENT_SIZE 30 //トーナメントサイズ
 
 //0以上1以下の実数乱数
 #define RAND_01 ((double)rand() / RAND_MAX)
