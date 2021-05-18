@@ -156,7 +156,7 @@ int Population::select()
 //結果を表示する
 void Population::printResult()
 {
-  int i++;
+  int i;
 
   printf("集合A：");
   for (i = 0; i < N; i++)
