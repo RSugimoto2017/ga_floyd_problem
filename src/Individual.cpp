@@ -33,20 +33,20 @@ void Individual::evaluate()
 //p1とp2から「一点交叉」で作った子にする
 //p1:親個体1
 //p2:親個体2
-// void Individual::crossover(Individual *p1, Individual *p2)
-// {
-//   int point, i;
+void Individual::crossover(Individual *p1, Individual *p2)
+{
+  int point, i;
 
-//   point = rand() % (N - 1);
-//   for (i = 0; i <= point; i++)
-//   {
-//     chrom[i] = p1->chrom[i];
-//   }
-//   for (; i < N; i++)
-//   {
-//     chrom[i] = p2->chrom[i];
-//   }
-// }
+  point = rand() % (N - 1);
+  for (i = 0; i <= point; i++)
+  {
+    chrom[i] = p1->chrom[i];
+  }
+  for (; i < N; i++)
+  {
+    chrom[i] = p2->chrom[i];
+  }
+}
 
 //p1とp2から「二点交叉」で作った子にする
 //p1:親個体1
@@ -80,22 +80,22 @@ void Individual::evaluate()
 //p1とp2から「一様交叉」で作った子にする
 //p1:親個体1
 //p2:親個体2
-void Individual::crossover(Individual *p1, Individual *p2)
-{
-  int i;
+// void Individual::crossover(Individual *p1, Individual *p2)
+// {
+//   int i;
 
-  for (i = 0; i < N; i++)
-  {
-    if (rand() % 2 == 1)
-    {
-      chrom[i] = p1->chrom[i];
-    }
-    else
-    {
-      chrom[i] = p2->chrom[i];
-    }
-  }
-}
+//   for (i = 0; i < N; i++)
+//   {
+//     if (rand() % 2 == 1)
+//     {
+//       chrom[i] = p1->chrom[i];
+//     }
+//     else
+//     {
+//       chrom[i] = p2->chrom[i];
+//     }
+//   }
+// }
 
 void Individual::mutate()
 {

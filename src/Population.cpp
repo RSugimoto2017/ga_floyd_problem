@@ -128,22 +128,22 @@ void Population::alternate()
 
 //「順位に基づくランキング選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-// int Population::select()
-// {
-//   int num, denom, r;
+int Population::select()
+{
+  int num, denom, r;
 
-//   denom = POP_SIZE * (POP_SIZE + 1) / 2;
-//   r = ((rand() << 16) + (rand() << 1) + (rand() % 2)) % denom + 1;
-//   for (num = POP_SIZE; 0 < num; num--)
-//   {
-//     if (r <= num)
-//     {
-//       break;
-//     }
-//     r -= num;
-//   }
-//   return POP_SIZE - num;
-// }
+  denom = POP_SIZE * (POP_SIZE + 1) / 2;
+  r = ((rand() << 16) + (rand() << 1) + (rand() % 2)) % denom + 1;
+  for (num = POP_SIZE; 0 < num; num--)
+  {
+    if (r <= num)
+    {
+      break;
+    }
+    r -= num;
+  }
+  return POP_SIZE - num;
+}
 
 //「確率に基づくランキング選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
@@ -188,38 +188,38 @@ void Population::alternate()
 
 //「トーナメント選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-int Population::select()
-{
-  int i, ret, num, r;
-  double bestFit;
-  int tmp[POP_SIZE];
+// int Population::select()
+// {
+//   int i, ret, num, r;
+//   double bestFit;
+//   int tmp[POP_SIZE];
 
-  for (i = 0; i < POP_SIZE; i++)
-  {
-    tmp[i] = 0;
-  }
-  ret = -1;
-  bestFit = DBL_MAX;
-  num = 0;
-  while (1)
-  {
-    r = rand() % POP_SIZE;
-    if (tmp[r] == 0)
-    {
-      tmp[r] = 1;
-      if (ind[r]->fitness < bestFit)
-      {
-        ret = r;
-        bestFit = ind[r]->fitness;
-      }
-      if (++num == TOURNAMENT_SIZE)
-      {
-        break;
-      }
-    }
-  }
-  return ret;
-}
+//   for (i = 0; i < POP_SIZE; i++)
+//   {
+//     tmp[i] = 0;
+//   }
+//   ret = -1;
+//   bestFit = DBL_MAX;
+//   num = 0;
+//   while (1)
+//   {
+//     r = rand() % POP_SIZE;
+//     if (tmp[r] == 0)
+//     {
+//       tmp[r] = 1;
+//       if (ind[r]->fitness < bestFit)
+//       {
+//         ret = r;
+//         bestFit = ind[r]->fitness;
+//       }
+//       if (++num == TOURNAMENT_SIZE)
+//       {
+//         break;
+//       }
+//     }
+//   }
+//   return ret;
+// }
 
 //結果を表示する
 void Population::printResult()
