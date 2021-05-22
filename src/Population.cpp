@@ -87,12 +87,12 @@ void Population::alternate()
   Individual **tmp;
 
   //以下ルーレット選択用の処理
-  /*denom = 0.0;
-  for (i = 0; i < POP_SIZE; i++)
-  {
-    trFit[i] = (ind[POP_SIZE - 1]->fitness - ind[i]->fitness) / (ind[POP_SIZE - 1]->fitness - ind[0]->fitness);
-    denom += trFit[i];
-  }*/
+  // denom = 0.0;
+  // for (i = 0; i < POP_SIZE; i++)
+  // {
+  //   trFit[i] = (ind[POP_SIZE - 1]->fitness - ind[i]->fitness) / (ind[POP_SIZE - 1]->fitness - ind[0]->fitness);
+  //   denom += trFit[i];
+  // }
 
   //エリート保存戦略で子個体を作る
   for (i = 0; i < ELITE; i++)
@@ -128,67 +128,67 @@ void Population::alternate()
 
 //「順位に基づくランキング選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-/*int Population::select()
-{
-  int num, denom, r;
+// int Population::select()
+// {
+//   int num, denom, r;
 
-  denom = POP_SIZE * (POP_SIZE + 1) / 2;
-  r = ((rand() << 16) + (rand() << 1) + (rand() % 2)) % denom + 1;
-  for (num = POP_SIZE; 0 < num; num--)
-  {
-    if (r <= num)
-    {
-      break;
-    }
-    r -= num;
-  }
-  return POP_SIZE - num;
-}*/
+//   denom = POP_SIZE * (POP_SIZE + 1) / 2;
+//   r = ((rand() << 16) + (rand() << 1) + (rand() % 2)) % denom + 1;
+//   for (num = POP_SIZE; 0 < num; num--)
+//   {
+//     if (r <= num)
+//     {
+//       break;
+//     }
+//     r -= num;
+//   }
+//   return POP_SIZE - num;
+// }
 
 //「確率に基づくランキング選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-/*int Population::select()
-{
-  int rank, denom;
-  double prob, r;
+// int Population::select()
+// {
+//   int rank, denom;
+//   double prob, r;
 
-  denom = POP_SIZE * (POP_SIZE + 1) / 2;
-  r = RAND_01;
-  for (rank = 1; rank < POP_SIZE; rank++)
-  {
-    prob = (double)(POP_SIZE - rank + 1) / denom;
-    if (r <= prob)
-    {
-      break;
-    }
-    r -= prob;
-  }
-  return rank - 1;
-}*/
+//   denom = POP_SIZE * (POP_SIZE + 1) / 2;
+//   r = RAND_01;
+//   for (rank = 1; rank < POP_SIZE; rank++)
+//   {
+//     prob = (double)(POP_SIZE - rank + 1) / denom;
+//     if (r <= prob)
+//     {
+//       break;
+//     }
+//     r -= prob;
+//   }
+//   return rank - 1;
+// }
 
 //「ルーレット選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-/*int Population::select()
-{
-  int rank;
-  double prob, r;
+// int Population::select()
+// {
+//   int rank;
+//   double prob, r;
 
-  r = RAND_01;
-  for (rank = 1; rank < POP_SIZE; rank++)
-  {
-    prob = trFit[rank - 1] / denom;
-    if (r <= prob)
-    {
-      break;
-    }
-    r -= prob;
-  }
-  return rank - 1;
-}*/
+//   r = RAND_01;
+//   for (rank = 1; rank < POP_SIZE; rank++)
+//   {
+//     prob = trFit[rank - 1] / denom;
+//     if (r <= prob)
+//     {
+//       break;
+//     }
+//     r -= prob;
+//   }
+//   return rank - 1;
+// }
 
 //「トーナメント選択」を用いて親個体を一つ選択
 //戻り値：選択肢た親個体の添字
-/*int Population::select()
+int Population::select()
 {
   int i, ret, num, r;
   double bestFit;
@@ -219,7 +219,7 @@ void Population::alternate()
     }
   }
   return ret;
-}*/
+}
 
 //結果を表示する
 void Population::printResult()
